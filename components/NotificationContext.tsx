@@ -6,7 +6,7 @@ type Notification = { title: string; body: string };
 
 const WS_URL =
   process.env.NODE_ENV === "production"
-    ? "wss://YOUR-PROJECT.deno.dev"   // ← replace
+    ? "wss://YOUR-PROJECT.deno.dev"
     : "ws://localhost:8000";
 
 const NotificationContext = createContext<Notification[]>([]);

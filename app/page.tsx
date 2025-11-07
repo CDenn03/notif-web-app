@@ -2,7 +2,7 @@
 import { useNotifications } from "@/components/NotificationContext";
 
 export default function Home() {
-  const notifs = useNotifications();
+  const { notifications, status } = useNotifications(); 
 
   return (
     <main className="p-12">
@@ -13,9 +13,12 @@ export default function Home() {
       <div className="space-y-4">
         <p>Open this page in several tabs → send a notification → all tabs light up!</p>
 
-        <h2 className="text-2xl">Received ({notifs.length})</h2>
+        <h2 className="text-2xl">
+          Received ({notifications.length}) — Status: {status}
+        </h2>
+
         <ul className="list-disc pl-8">
-          {notifs.map((n, i) => (
+          {notifications.map((n, i) => (
             <li key={i}>
               <strong>{n.title}</strong>: {n.body}
             </li>
